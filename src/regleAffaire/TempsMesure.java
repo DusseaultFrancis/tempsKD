@@ -9,22 +9,17 @@ package regleAffaire;
  *
  * @author Francis
  */
-public class MesureTemps {
+public class TempsMesure {
 
-    double secondes;
-    double minutes;
-    double heures;
-    double jours;
+    double secondes = 0;
+    double minutes = 0;
+    double heures = 0;
+    double jours = 0;
 
-    public MesureTemps() {
-
-        this.secondes = 0;
-        this.minutes = 0;
-        this.heures = 0;
-        this.jours = 0;
+    public TempsMesure() {
     }
 
-    public MesureTemps(double secondes, double minutes, double heures, double jours) {
+    public TempsMesure(double secondes, double minutes, double heures, double jours) {
 
         this.secondes = secondes;
         this.minutes = minutes;
