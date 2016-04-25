@@ -10,6 +10,7 @@ import java.util.Date;
 public class Temps {
 
     static private Date dateDepart;
+    static private Date dateFin;
     static TempsMesure mesureTemps = new TempsMesure();
 
     public Temps() {
@@ -32,6 +33,7 @@ public class Temps {
 
         Date tempsDebut = getTempsDepart();
         Date tempsFin = new Date();
+        this.dateFin = tempsFin;
 
         //en millisecondes
         long diff = tempsFin.getTime() - tempsDebut.getTime();
