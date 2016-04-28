@@ -59,4 +59,62 @@ public class Client {
         }
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public Telephone getTelephone() {
+        return telephone;
+    }
+
+    public String getEntreprise() {
+        return entreprise;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public AdresseCourriel getAdresseCourriel() {
+        return adresseCourriel;
+    }
+
+    public ArrayList<Temps> getListeTemps() {
+        return listeTemps;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setTelephone(Telephone telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setEntreprise(String entreprise) {
+        this.entreprise = entreprise;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    public void setAdresseCourriel(AdresseCourriel adresseCourriel) {
+        this.adresseCourriel = adresseCourriel;
+    }
+
+    public void setListeTemps(ArrayList<Temps> listeTemps) {
+        this.listeTemps = listeTemps;
+    }
+    
+    
+    
 }
