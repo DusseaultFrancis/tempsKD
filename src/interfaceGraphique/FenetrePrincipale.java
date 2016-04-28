@@ -140,10 +140,8 @@ public class FenetrePrincipale extends JFrame {
         //**********************************************************************************************************
         JPanel panelCenter = new JPanel();
 
-
         panelCenter.setBorder(new TitledBorder(null, "Moteur de recherche",
                 TitledBorder.LEFT, TitledBorder.TOP, null, Color.decode("#3899C3")));
-       
 
         FlowLayout flowLayout_1 = (FlowLayout) panelCenter.getLayout();
         flowLayout_1.setVgap(80);
@@ -193,8 +191,32 @@ public class FenetrePrincipale extends JFrame {
         panelTable.add(scrollPane);
 
         boutonAjouterScroll = new JButton("Ajouter");
+        boutonAjouterScroll.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                ajoutClient fenetreAjout = new ajoutClient();
+                fenetreAjout.setVisible(true);
+                fenetreAjout.pack();
+
+            }
+        });
         boutonModifierScroll = new JButton("Modifier");
+        boutonModifierScroll.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent arg1){
+					ModifierClient fenetreModifier = new ModifierClient();
+					fenetreModifier.setVisible(true);
+					fenetreModifier.pack();
+					
+					
+				}
+				});
         boutonAfficherScroll = new JButton("Afficher");
+        boutonAfficherScroll.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent arg2){
+					AfficherClient fenetreAfficher = new AfficherClient();
+					fenetreAfficher.setVisible(true);
+					fenetreAfficher.pack();
+				}
+				});
         boutonSupprimerScroll = new JButton("Supprimer");
 
         panelTable.add(boutonAjouterScroll);
@@ -202,7 +224,6 @@ public class FenetrePrincipale extends JFrame {
         panelTable.add(boutonAfficherScroll);
         panelTable.add(boutonSupprimerScroll);
 
-        
         //*************************************************************************************************Panneau 3
         JPanel panelBoutons = new JPanel();
 
@@ -253,7 +274,6 @@ public class FenetrePrincipale extends JFrame {
             }
         });
         panelBoutons.add(boutonModifier);
-
 
         panelCenter.setBackground(Color.decode("#e6f7ff"));
         panelTable.setBackground(Color.decode("#e6f7ff"));
