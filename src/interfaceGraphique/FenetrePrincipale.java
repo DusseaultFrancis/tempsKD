@@ -4,13 +4,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.MenuBar;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
@@ -21,9 +18,7 @@ import javax.swing.JTable;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -59,7 +54,6 @@ public class FenetrePrincipale extends JFrame {
 
         FenetrePrincipale fenetreLivre = new FenetrePrincipale();
         fenetreLivre.setVisible(true);
-
     }
 
     // Panneau du bas et ses composants
@@ -141,21 +135,19 @@ public class FenetrePrincipale extends JFrame {
 
         setJMenuBar(menuBar);
 
-        // Création du panneau du haut avec ses composants
-        JPanel panneauHaut = new JPanel();
-
-        panneauHaut.setBorder(new TitledBorder(null, "Ajout d'un client",
-                TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
-
-        //contentPane.add(panneauHaut);
+        //*************************************************************************************************Panneau 1
         // Création du panneau du milieu avec ses composants
+        //**********************************************************************************************************
         JPanel panelCenter = new JPanel();
 
+
         panelCenter.setBorder(new TitledBorder(null, "Moteur de recherche",
-                TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+                TitledBorder.LEFT, TitledBorder.TOP, null, Color.decode("#3899C3")));
+       
 
         FlowLayout flowLayout_1 = (FlowLayout) panelCenter.getLayout();
-        flowLayout_1.setVgap(15);
+        flowLayout_1.setVgap(80);
+
         contentPane.add(panelCenter);
 
         panelCenter.add(LeNomDeTaComboBox);
@@ -169,7 +161,12 @@ public class FenetrePrincipale extends JFrame {
         panelCenter.add(btnRechercher);
         //btnRechercher.addActionListener(controleur);
 
+        //*************************************************************************************************Panneau 2
         JPanel panelTable = new JPanel();
+
+        panelTable.setBorder(new TitledBorder(null, "Gestion des clients",
+                TitledBorder.LEFT, TitledBorder.TOP, null, Color.decode("#3899C3")));
+
         panelTable.setPreferredSize(new Dimension(20, 15));
         panelTable.setOpaque(true);
         contentPane.add(panelTable);
@@ -205,9 +202,15 @@ public class FenetrePrincipale extends JFrame {
         panelTable.add(boutonAfficherScroll);
         panelTable.add(boutonSupprimerScroll);
 
+        
+        //*************************************************************************************************Panneau 3
         JPanel panelBoutons = new JPanel();
+
+        panelBoutons.setBorder(new TitledBorder(null, "Compteur",
+                TitledBorder.LEFT, TitledBorder.TOP, null, Color.decode("#3899C3")));
+
         FlowLayout fl_panelBoutons = (FlowLayout) panelBoutons.getLayout();
-        fl_panelBoutons.setVgap(20);
+        fl_panelBoutons.setVgap(60);
         fl_panelBoutons.setAlignment(FlowLayout.CENTER);
         contentPane.add(panelBoutons);
 
@@ -251,7 +254,7 @@ public class FenetrePrincipale extends JFrame {
         });
         panelBoutons.add(boutonModifier);
 
-        panneauHaut.setBackground(Color.decode("#e6f7ff"));
+
         panelCenter.setBackground(Color.decode("#e6f7ff"));
         panelTable.setBackground(Color.decode("#e6f7ff"));
         panelBoutons.setBackground(Color.decode("#e6f7ff"));
