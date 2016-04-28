@@ -67,6 +67,12 @@ public class FenetrePrincipale extends JFrame {
     JButton boutonModifier;
     JButton boutonEtat;
     JButton btnAjouter;
+
+    JButton boutonAjouterScroll;
+    JButton boutonModifierScroll;
+    JButton boutonAfficherScroll;
+    JButton boutonSupprimerScroll;
+
     JButton btnRechercher;
 
     FlowLayout gestionnairePanneauBas;
@@ -84,7 +90,9 @@ public class FenetrePrincipale extends JFrame {
         setTitle("Temps KD");
 
         // Taille de la fen�tre
-        setBounds(450, 200, 1000, 800);
+        setBounds(450, 200, 1000, 700);
+
+        setBackground(Color.yellow);
 
         // Type de fermeture
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,8 +100,7 @@ public class FenetrePrincipale extends JFrame {
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-        contentPane.setLayout(new GridLayout(4, 1, 0, 0));
-        
+        contentPane.setLayout(new GridLayout(3, 1, 0, 0));
 
         JMenuBar menuBar = new JMenuBar();
 
@@ -140,8 +147,7 @@ public class FenetrePrincipale extends JFrame {
         panneauHaut.setBorder(new TitledBorder(null, "Ajout d'un client",
                 TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
 
-        contentPane.add(panneauHaut);
-
+        //contentPane.add(panneauHaut);
         // Création du panneau du milieu avec ses composants
         JPanel panelCenter = new JPanel();
 
@@ -189,6 +195,16 @@ public class FenetrePrincipale extends JFrame {
         scrollPane.setPreferredSize(new Dimension(900, 130));
         panelTable.add(scrollPane);
 
+        boutonAjouterScroll = new JButton("Ajouter");
+        boutonModifierScroll = new JButton("Modifier");
+        boutonAfficherScroll = new JButton("Afficher");
+        boutonSupprimerScroll = new JButton("Supprimer");
+
+        panelTable.add(boutonAjouterScroll);
+        panelTable.add(boutonModifierScroll);
+        panelTable.add(boutonAfficherScroll);
+        panelTable.add(boutonSupprimerScroll);
+
         JPanel panelBoutons = new JPanel();
         FlowLayout fl_panelBoutons = (FlowLayout) panelBoutons.getLayout();
         fl_panelBoutons.setVgap(20);
@@ -234,6 +250,11 @@ public class FenetrePrincipale extends JFrame {
             }
         });
         panelBoutons.add(boutonModifier);
+
+        panneauHaut.setBackground(Color.decode("#e6f7ff"));
+        panelCenter.setBackground(Color.decode("#e6f7ff"));
+        panelTable.setBackground(Color.decode("#e6f7ff"));
+        panelBoutons.setBackground(Color.decode("#e6f7ff"));
 
     }
 
