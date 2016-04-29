@@ -16,10 +16,10 @@ public class Client {
 
     private String nom;
     private String prenom;
-    private Telephone telephone;
+    private String telephone;
     private String entreprise;
     private String commentaire;
-    private AdresseCourriel adresseCourriel;
+    private String adresseCourriel;
     ArrayList<Temps> listeTemps;
 
     public Client() {
@@ -33,8 +33,8 @@ public class Client {
         this.listeTemps = new ArrayList<Temps>();
     }
 
-    public Client(String nom, String prenom, Telephone telephone, String entreprise,
-            String commentaire, AdresseCourriel adresseCourriel) {
+    public Client(String nom, String prenom, String telephone, String entreprise,
+            String commentaire, String adresseCourriel) {
 
         this.nom = nom;
         this.prenom = prenom;
@@ -67,7 +67,7 @@ public class Client {
         return prenom;
     }
 
-    public Telephone getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
@@ -79,7 +79,7 @@ public class Client {
         return commentaire;
     }
 
-    public AdresseCourriel getAdresseCourriel() {
+    public String getAdresseCourriel() {
         return adresseCourriel;
     }
 
@@ -95,7 +95,7 @@ public class Client {
         this.prenom = prenom;
     }
 
-    public void setTelephone(Telephone telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
@@ -107,7 +107,7 @@ public class Client {
         this.commentaire = commentaire;
     }
 
-    public void setAdresseCourriel(AdresseCourriel adresseCourriel) {
+    public void setAdresseCourriel(String adresseCourriel) {
         this.adresseCourriel = adresseCourriel;
     }
 

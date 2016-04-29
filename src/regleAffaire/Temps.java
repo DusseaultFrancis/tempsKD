@@ -17,6 +17,11 @@ public class Temps {
 
         Temps.dateDepart = new Date();
     }
+    
+        public Temps(Date dateDepart, Date dateFin, TempsMesure mesureTemps) {
+
+        Temps.dateDepart = new Date();
+    }
 
     public double finTemps() {
 

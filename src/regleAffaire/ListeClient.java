@@ -34,8 +34,8 @@ public class ListeClient {
         }
     }
 
-    public void modifierClient(Client client, String nom, String prenom, Telephone telephone, String entreprise,
-            String commentaire, AdresseCourriel adresseCourriel) {
+    public void modifierClient(Client client, String nom, String prenom, String telephone, String entreprise,
+            String commentaire, String adresseCourriel) {
 
         client.setNom(nom);
         client.setPrenom(prenom);
