@@ -10,5 +10,5 @@ package regleAffaire;
  * @author Francis
  */
 public class Statistique {
-    
+
 }

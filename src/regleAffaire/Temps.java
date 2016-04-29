@@ -58,8 +58,24 @@ public class Temps {
         return dateDepart;
     }
 
+    public Date getDateFin() {
+        return dateFin;
+    }
+
+    public TempsMesure getMesureTemps() {
+        return mesureTemps;
+    }
+
     public void setTempsDepart(Date tempsDebut) {
         this.dateDepart = tempsDebut;
+    }
+
+    public void setDateFin(Date dateFin) {
+        Temps.dateFin = dateFin;
+    }
+
+    public void setMesureTemps(TempsMesure mesureTemps) {
+        Temps.mesureTemps = mesureTemps;
     }
 
 }

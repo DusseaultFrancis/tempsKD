@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
-public class AfficherClient extends JFrame {
+public class AjoutClient extends JFrame {
 
     // Panneau du haut
     JPanel panneauMilieu;
@@ -34,15 +34,16 @@ public class AfficherClient extends JFrame {
 
     // Panneau du bas
     JPanel panneauBas;
+    JButton boutonSauvegarder;
     JButton boutonFermer;
     FlowLayout gestionnairePanneauBas;
 
-    public AfficherClient() {
+    public AjoutClient() {
         init();
     }
 
     public static void main(String[] args) {
-        AfficherClient fenetreClient = new AfficherClient();
+        AjoutClient fenetreClient = new AjoutClient();
         fenetreClient.setVisible(true);
 
     }
@@ -94,8 +95,6 @@ public class AfficherClient extends JFrame {
         choixFacturation.addItem("Hebdomadaire");
         choixFacturation.addItem("Mensuel");
         choixFacturation.addItem("Annuel");
-        choixFacturation.setEditable(false);
-        choixFacturation.setEnabled(false);
         panneauMilieu.add(grpeFacturation);
         panneauMilieu.add(choixFacturation);
 
@@ -104,8 +103,10 @@ public class AfficherClient extends JFrame {
         gestionnairePanneauBas = new FlowLayout(FlowLayout.RIGHT);
         panneauBas.setLayout(gestionnairePanneauBas);
 
+        boutonSauvegarder = new JButton("Ajouter");
         boutonFermer = new JButton("Fermer");
 
+        panneauBas.add(boutonSauvegarder);
         panneauBas.add(boutonFermer);
 
         // Personnalisation du cadre central
@@ -120,13 +121,6 @@ public class AfficherClient extends JFrame {
 
         //Non resize
         setResizable(false);
-
-        saisieNom.setEditable(false);
-        saisiePrenom.setEditable(false);
-        saisieTelephone.setEditable(false);
-        saisieAdresse.setEditable(false);
-        saisieCourriel.setEditable(false);
-        saisieEntreprise.setEditable(false);
 
         // Définir le type de fermetire
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

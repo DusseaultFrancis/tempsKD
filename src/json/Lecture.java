@@ -10,5 +10,5 @@ package json;
  * @author Francis
  */
 public class Lecture {
-    
+
 }

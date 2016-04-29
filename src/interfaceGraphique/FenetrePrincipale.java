@@ -193,30 +193,29 @@ public class FenetrePrincipale extends JFrame {
         boutonAjouterScroll = new JButton("Ajouter");
         boutonAjouterScroll.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                ajoutClient fenetreAjout = new ajoutClient();
+                AjoutClient fenetreAjout = new AjoutClient();
                 fenetreAjout.setVisible(true);
                 fenetreAjout.pack();
 
             }
         });
         boutonModifierScroll = new JButton("Modifier");
-        boutonModifierScroll.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent arg1){
-					ModifierClient fenetreModifier = new ModifierClient();
-					fenetreModifier.setVisible(true);
-					fenetreModifier.pack();
-					
-					
-				}
-				});
+        boutonModifierScroll.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg1) {
+                ModifierClient fenetreModifier = new ModifierClient();
+                fenetreModifier.setVisible(true);
+                fenetreModifier.pack();
+
+            }
+        });
         boutonAfficherScroll = new JButton("Afficher");
-        boutonAfficherScroll.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent arg2){
-					AfficherClient fenetreAfficher = new AfficherClient();
-					fenetreAfficher.setVisible(true);
-					fenetreAfficher.pack();
-				}
-				});
+        boutonAfficherScroll.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg2) {
+                AfficherClient fenetreAfficher = new AfficherClient();
+                fenetreAfficher.setVisible(true);
+                fenetreAfficher.pack();
+            }
+        });
         boutonSupprimerScroll = new JButton("Supprimer");
 
         panelTable.add(boutonAjouterScroll);

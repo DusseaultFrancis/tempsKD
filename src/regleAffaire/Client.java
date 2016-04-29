@@ -114,7 +114,5 @@ public class Client {
     public void setListeTemps(ArrayList<Temps> listeTemps) {
         this.listeTemps = listeTemps;
     }
-    
-    
-    
+
 }

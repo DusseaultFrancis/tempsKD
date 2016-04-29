@@ -10,9 +10,9 @@ package regleAffaire;
  * @author Francis
  */
 public class Telephone {
-    
-    public Telephone(){
-        
+
+    public Telephone() {
+
     }
-    
+
 }

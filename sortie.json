@@ -1,0 +1,38 @@
+{
+   "Nom": "Dusseault",
+   "Prenom": "Francis",
+   "Telephone": {},
+   "Entreprise": "Services KD",
+   "Commentaire": "La meilleur entreprise au monde!",
+   "Courriel;": {},
+   "Temps": [   {
+      "dateFin":       {
+         "date": 29,
+         "day": 5,
+         "hours": 12,
+         "minutes": 21,
+         "month": 3,
+         "seconds": 5,
+         "time": 1461946865508,
+         "timezoneOffset": 240,
+         "year": 116
+      },
+      "mesureTemps":       {
+         "heures": 0,
+         "jours": 0,
+         "minutes": 0,
+         "secondes": 0
+      },
+      "tempsDepart":       {
+         "date": 29,
+         "day": 5,
+         "hours": 12,
+         "minutes": 21,
+         "month": 3,
+         "seconds": 5,
+         "time": 1461946865506,
+         "timezoneOffset": 240,
+         "year": 116
+      }
+   }]
+}
