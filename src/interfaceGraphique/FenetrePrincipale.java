@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -40,6 +41,7 @@ public class FenetrePrincipale extends JFrame {
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     static JTextField textField;
+    static JLabel instruction;
     static JTable tableEtudiants;
     //private ControleurRecherche<Object> controleur;
 
@@ -84,7 +86,7 @@ public class FenetrePrincipale extends JFrame {
         setTitle("Temps KD");
 
         // Taille de la fen�tre
-        setBounds(450, 200, 1000, 700);
+        setBounds(450, 200, 1000, 720);
 
         setBackground(Color.yellow);
 
@@ -188,6 +190,11 @@ public class FenetrePrincipale extends JFrame {
 
         JScrollPane scrollPane = new JScrollPane(tableEtudiants);
         scrollPane.setPreferredSize(new Dimension(900, 130));
+        
+        
+        instruction = new JLabel("Cliquez tout simplement sur le client souhaité pour le modifier, l'afficher ou le supprimer");
+        panelTable.add(instruction);
+        
         panelTable.add(scrollPane);
 
         boutonAjouterScroll = new JButton("Ajouter");
@@ -236,6 +243,7 @@ public class FenetrePrincipale extends JFrame {
 
         // BOUTON AJOUTER
         JButton btnAjouter = new JButton("   Activer   ");
+        btnAjouter.setPreferredSize(new Dimension(150,50));
         btnAjouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 //Ajout fenetreAjout = new Ajout();
@@ -247,7 +255,8 @@ public class FenetrePrincipale extends JFrame {
         panelBoutons.add(btnAjouter);
 
         // BOUTON MODIFIER
-        boutonEtat = new JButton("                État                ");
+        boutonEtat = new JButton("État");
+        boutonEtat.setPreferredSize(new Dimension(200,50));
         boutonEtat.setBackground(Color.red);
         boutonEtat.setEnabled(false);
         boutonEtat.addActionListener(new ActionListener() {
@@ -263,6 +272,7 @@ public class FenetrePrincipale extends JFrame {
 
         // BOUTON MODIFIER
         boutonModifier = new JButton("Désactiver");
+        boutonModifier.setPreferredSize(new Dimension(150,50));
         boutonModifier.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent arg1) {
