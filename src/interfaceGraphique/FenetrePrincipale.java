@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
+import regleAffaire.Client;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,11 +20,13 @@ import javax.swing.JTable;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import regleAffaire.ListeClient;
 
 /**
  * Livre Pour Tous (LPT).
@@ -170,7 +174,11 @@ public class FenetrePrincipale extends JFrame {
         panelTable.setPreferredSize(new Dimension(20, 15));
         panelTable.setOpaque(true);
         contentPane.add(panelTable);
-
+        
+        
+        
+        
+/*
         tableEtudiants = new JTable();
         tableEtudiants.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tableEtudiants.setFillsViewportHeight(true);
@@ -187,7 +195,7 @@ public class FenetrePrincipale extends JFrame {
         tableEtudiants.getColumnModel().getColumn(3).setPreferredWidth(160);
         tableEtudiants.getColumnModel().getColumn(4).setResizable(false);
         tableEtudiants.getColumnModel().getColumn(4).setPreferredWidth(160);
-
+*/
         JScrollPane scrollPane = new JScrollPane(tableEtudiants);
         scrollPane.setPreferredSize(new Dimension(900, 130));
         
@@ -294,7 +302,7 @@ public class FenetrePrincipale extends JFrame {
      * Cr�er le mod�le avec les colonnes non �ditables.
      *
      * @return LE mod�le de la table.
-     */
+     
     private DefaultTableModel creerModeleAvecColonnesNonEditables() {
 
         return new DefaultTableModel(
@@ -312,7 +320,27 @@ public class FenetrePrincipale extends JFrame {
             }
         };
     }
-
+*/
+    public DefaultTableModel display(ListeClient liste){
+		DefaultTableModel model=new DefaultTableModel();
+		model.addColumn("Nom");
+		model.addColumn("Prénom");
+		model.addColumn("Téléphone");
+		model.addColumn("Entreprise");
+		model.addColumn("Courriel");
+		if(liste!=null){					
+			for(Client el: liste.getListeClient()){
+				String s1=el.getNom();
+				String	s2=el.getPrenom();
+				String	s3=el.getTelephone();
+				String	s4=""+el.getEntreprise();
+				String	s5=""+el.getAdresseCourriel();
+				Object[]row={s1,s2,s3,s4,s5};
+				model.addRow(row);						
+			}			
+		}	
+		return model;
+	}
     public JButton getBtnRechercher() {
         return btnRechercher;
     }

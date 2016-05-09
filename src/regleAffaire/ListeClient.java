@@ -45,4 +45,9 @@ public class ListeClient {
         client.setAdresseCourriel(adresseCourriel);
 
     }
+
+    public ArrayList<Client> getListeClient() {
+        return listeClient;
+    }
+    
 }
