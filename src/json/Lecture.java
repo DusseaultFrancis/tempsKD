@@ -24,18 +24,26 @@ import regleAffaire.Temps;
  */
 public class Lecture {
 
-    public static Client creationObjet(String entree) throws Exception {
+    public static ListeClient creationObjet(String entree) throws Exception {
 
         String json = FileReader.loadFileIntoString(entree, "utf-8");
-        String client = null;
+
         JSONObject objetJson = (JSONObject) JSONSerializer.toJSON(json);
 
-        JSONArray arrayJson = JSONArray.fromObject(client);
+        JSONArray arrayJson = JSONArray.fromObject(objetJson);
 
-        Client listeclient = new Client(obtenirNom(objetJson), obtenirPrenom(objetJson),
-                obtenirEntreprise(objetJson), obtenirTelephone(objetJson), obtenirAdresse(objetJson), obtenirCourriel(objetJson));
+        ListeClient listeClient = new ListeClient();
 
-        return listeclient;
+        for (int i = 0; i < arrayJson.size(); i++) {
+
+            JSONObject objetClient = arrayJson.getJSONObject(i);
+            Client client = new Client(obtenirNom(objetClient), obtenirPrenom(objetClient),
+                    obtenirEntreprise(objetClient), obtenirTelephone(objetClient), obtenirAdresse(objetClient), obtenirCourriel(objetClient));
+
+            listeClient.ajouterClient(client);
+        }
+
+        return listeClient;
     }
 
     static String obtenirNom(JSONObject json) {
@@ -82,7 +90,7 @@ public class Lecture {
 
         String nom = "";
 
-        nom = json.getString("Adresse");
+        nom = json.getString("Commentaire");
 
         return nom;
 

@@ -39,7 +39,7 @@ public class Ecriture {
         json.accumulate("Telephone", client.getTelephone());
         json.accumulate("Entreprise", client.getEntreprise());
         json.accumulate("Commentaire", client.getCommentaire());
-        json.accumulate("Courriel;", client.getAdresseCourriel());
+        json.accumulate("Courriel", client.getAdresseCourriel());
         return json;
     }
 

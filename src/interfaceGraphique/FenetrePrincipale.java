@@ -43,7 +43,7 @@ import regleAffaire.ListeClient;
 public class FenetrePrincipale extends JFrame {
 
     private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
+    public JPanel contentPane;
     static JTextField textField;
     static JLabel instruction;
     static JTable tableEtudiants;
@@ -76,6 +76,9 @@ public class FenetrePrincipale extends JFrame {
     JButton btnRechercher;
 
     FlowLayout gestionnairePanneauBas;
+    
+    public static JTable tableau;
+    public static JScrollPane scrollPane;
 
     /**
      * Constructeur.
@@ -168,41 +171,21 @@ public class FenetrePrincipale extends JFrame {
         //*************************************************************************************************Panneau 2
         JPanel panelTable = new JPanel();
 
+        tableau = new JTable();
+
+        scrollPane = new JScrollPane(tableau);
+        scrollPane.setPreferredSize(new Dimension(900, 130));
+
         panelTable.setBorder(new TitledBorder(null, "Gestion des clients",
                 TitledBorder.LEFT, TitledBorder.TOP, null, Color.decode("#3899C3")));
 
         panelTable.setPreferredSize(new Dimension(20, 15));
         panelTable.setOpaque(true);
         contentPane.add(panelTable);
-        
-        
-        
-        
-/*
-        tableEtudiants = new JTable();
-        tableEtudiants.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tableEtudiants.setFillsViewportHeight(true);
-        tableEtudiants.setPreferredScrollableViewportSize(new Dimension(600, 70));
-        tableEtudiants.setModel(creerModeleAvecColonnesNonEditables());
 
-        tableEtudiants.setRowSelectionInterval(0, 0);
-        tableEtudiants.getColumnModel().getColumn(0).setPreferredWidth(160);
-        tableEtudiants.getColumnModel().getColumn(1).setResizable(false);
-        tableEtudiants.getColumnModel().getColumn(1).setPreferredWidth(160);
-        tableEtudiants.getColumnModel().getColumn(2).setResizable(false);
-        tableEtudiants.getColumnModel().getColumn(2).setPreferredWidth(160);
-        tableEtudiants.getColumnModel().getColumn(3).setResizable(false);
-        tableEtudiants.getColumnModel().getColumn(3).setPreferredWidth(160);
-        tableEtudiants.getColumnModel().getColumn(4).setResizable(false);
-        tableEtudiants.getColumnModel().getColumn(4).setPreferredWidth(160);
-*/
-        JScrollPane scrollPane = new JScrollPane(tableEtudiants);
-        scrollPane.setPreferredSize(new Dimension(900, 130));
-        
-        
         instruction = new JLabel("Cliquez tout simplement sur le client souhaité pour le modifier, l'afficher ou le supprimer");
         panelTable.add(instruction);
-        
+
         panelTable.add(scrollPane);
 
         boutonAjouterScroll = new JButton("Ajouter");
@@ -251,7 +234,7 @@ public class FenetrePrincipale extends JFrame {
 
         // BOUTON AJOUTER
         JButton btnAjouter = new JButton("   Activer   ");
-        btnAjouter.setPreferredSize(new Dimension(150,50));
+        btnAjouter.setPreferredSize(new Dimension(150, 50));
         btnAjouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 //Ajout fenetreAjout = new Ajout();
@@ -264,7 +247,7 @@ public class FenetrePrincipale extends JFrame {
 
         // BOUTON MODIFIER
         boutonEtat = new JButton("État");
-        boutonEtat.setPreferredSize(new Dimension(200,50));
+        boutonEtat.setPreferredSize(new Dimension(200, 50));
         boutonEtat.setBackground(Color.red);
         boutonEtat.setEnabled(false);
         boutonEtat.addActionListener(new ActionListener() {
@@ -280,7 +263,7 @@ public class FenetrePrincipale extends JFrame {
 
         // BOUTON MODIFIER
         boutonModifier = new JButton("Désactiver");
-        boutonModifier.setPreferredSize(new Dimension(150,50));
+        boutonModifier.setPreferredSize(new Dimension(150, 50));
         boutonModifier.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent arg1) {
@@ -302,45 +285,41 @@ public class FenetrePrincipale extends JFrame {
      * Cr�er le mod�le avec les colonnes non �ditables.
      *
      * @return LE mod�le de la table.
-     
-    private DefaultTableModel creerModeleAvecColonnesNonEditables() {
-
-        return new DefaultTableModel(
-                new Object[][]{
-                    null
-
-                },
-                new String[]{"Nom", "Prénom",
-                    "Entreprise", "Téléphone", "Courriel"}) {
-
-            boolean[] columnEditables = new boolean[]{false, false, false, false, false};
-
-            public boolean isCellEditable(int row, int column) {
-                return columnEditables[column];
+     *
+     * private DefaultTableModel creerModeleAvecColonnesNonEditables() {
+     *
+     * return new DefaultTableModel( new Object[][]{ null
+     *
+     * }, new String[]{"Nom", "Prénom", "Entreprise", "Téléphone", "Courriel"})
+     * {
+     *
+     * boolean[] columnEditables = new boolean[]{false, false, false, false,
+     * false};
+     *
+     * public boolean isCellEditable(int row, int column) { return
+     * columnEditables[column]; } }; }
+     */
+    public static DefaultTableModel display(ListeClient liste) {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nom");
+        model.addColumn("Prénom");
+        model.addColumn("Téléphone");
+        model.addColumn("Entreprise");
+        model.addColumn("Courriel");
+        if (liste != null) {
+            for (Client el : liste.getListeClient()) {
+                String s1 = el.getNom();
+                String s2 = el.getPrenom();
+                String s3 = el.getTelephone();
+                String s4 = "" + el.getEntreprise();
+                String s5 = "" + el.getAdresseCourriel();
+                Object[] row = {s1, s2, s3, s4, s5};
+                model.addRow(row);
             }
-        };
+        }
+        return model;
     }
-*/
-    public DefaultTableModel display(ListeClient liste){
-		DefaultTableModel model=new DefaultTableModel();
-		model.addColumn("Nom");
-		model.addColumn("Prénom");
-		model.addColumn("Téléphone");
-		model.addColumn("Entreprise");
-		model.addColumn("Courriel");
-		if(liste!=null){					
-			for(Client el: liste.getListeClient()){
-				String s1=el.getNom();
-				String	s2=el.getPrenom();
-				String	s3=el.getTelephone();
-				String	s4=""+el.getEntreprise();
-				String	s5=""+el.getAdresseCourriel();
-				Object[]row={s1,s2,s3,s4,s5};
-				model.addRow(row);						
-			}			
-		}	
-		return model;
-	}
+
     public JButton getBtnRechercher() {
         return btnRechercher;
     }

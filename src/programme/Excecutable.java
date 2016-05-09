@@ -12,7 +12,8 @@ public class Excecutable {
     public static void main(String[] args) throws Exception {
         
         // TEST FICHIER ECRITURE
-        /*Telephone tel = new Telephone();
+        /*
+        Telephone tel = new Telephone();
         AdresseCourriel c = new AdresseCourriel();
         
         Temps temps = new Temps();
@@ -25,8 +26,8 @@ public class Excecutable {
         
         client.ajouterTemps(temps);
         client.ajouterTemps(temps1);
-        creationObjetJson(client, "sortie.json");*/
-        
+        creationObjetJson(client, "sortie.json");
+        */
         
         Identification programme = new Identification();
         programme.setVisible(true);

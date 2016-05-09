@@ -1,8 +1,11 @@
 package interfaceGraphique;
 
+import controleurIG.ControleurAjout;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -31,15 +34,23 @@ public class AjoutClient extends JFrame {
     JTextField saisieEntreprise;
     JLabel grpeFacturation;
     JComboBox<String> choixFacturation;
+    
+    ControleurAjout A;
 
     // Panneau du bas
     JPanel panneauBas;
+
     JButton boutonSauvegarder;
     JButton boutonFermer;
+
     FlowLayout gestionnairePanneauBas;
 
     public AjoutClient() {
+
         init();
+        A = new ControleurAjout(this);
+        boutonSauvegarder.addActionListener(A);
+        boutonFermer.addActionListener(A);
     }
 
     public static void main(String[] args) {
@@ -104,6 +115,11 @@ public class AjoutClient extends JFrame {
         panneauBas.setLayout(gestionnairePanneauBas);
 
         boutonSauvegarder = new JButton("Ajouter");
+        boutonSauvegarder.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+
+            }
+        });
         boutonFermer = new JButton("Fermer");
 
         panneauBas.add(boutonSauvegarder);
@@ -286,5 +302,5 @@ public class AjoutClient extends JFrame {
     public void setGestionnairePanneauBas(FlowLayout gestionnairePanneauBas) {
         this.gestionnairePanneauBas = gestionnairePanneauBas;
     }
-    
+
 }
